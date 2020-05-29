@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DataBook_Bingo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header style="background-color: #fb3;">
+        <nav class="navbar navbar-light navbar-1 white">
+            <img width="4%" src="~/Imagens/icons8-naruto-144.png" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+                    aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent15">
+                <!-- Links -->
+                <div class="navbar">
+                    <a class="active" href="#"><i></i></a>
+                    <a asp-area="" asp-controller="Aldeias" asp-action="Index"><i style="margin-right:15px;"><img width="60px" src="~/Imagens/konoha.png" /></i>Aldeia</a>
+                    <a href="#"><i style="margin-right:15px;"><img width="24px" src="~/Imagens/kunai.png" /></i>Shinobi</a>
+                    <a href="#"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Renegados</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - DataBook_Bingo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
