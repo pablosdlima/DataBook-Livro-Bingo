@@ -1,0 +1,8 @@
+alterações no sql
+	ADD-MIGRATION NOME
+
+
+
+após
+
+	Update-Database

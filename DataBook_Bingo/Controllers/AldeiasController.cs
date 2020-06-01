@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataBook_Bingo.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.Extensions.WebEncoders.Testing;
 
 namespace DataBook_Bingo.Controllers
 {
@@ -20,6 +24,7 @@ namespace DataBook_Bingo.Controllers
 
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Aldeia.ToListAsync());
         }
 
@@ -47,14 +52,21 @@ namespace DataBook_Bingo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdAldeia,NomeAldeia,ImgAldeia,PaisAldeia")] Aldeia aldeia)
+        public async Task<IActionResult> Create([Bind("IdAldeia,NomeAldeia,PaisAldeia")] Aldeia aldeia, IList<IFormFile> file)
         {
-            if (ModelState.IsValid)
+            IFormFile img = file.FirstOrDefault();
+            if (img != null || img.ContentType.ToLower().StartsWith("image/"))
             {
-                _context.Add(aldeia);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+                MemoryStream ms = new MemoryStream();
+                img.OpenReadStream().CopyTo(ms);
+                aldeia.ImgAldeia = ms.ToArray();
+                if (aldeia.ImgAldeia != null)
+                {
+                     _context.Add(aldeia);
+                     await _context.SaveChangesAsync();
+                     return RedirectToAction(nameof(Index));
+                }      
+            }         
             return View(aldeia);
         }
         private bool AldeiaExists(int id)

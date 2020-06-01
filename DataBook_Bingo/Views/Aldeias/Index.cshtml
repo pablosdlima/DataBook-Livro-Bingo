@@ -31,7 +31,16 @@
                 @Html.DisplayFor(modelItem => item.NomeAldeia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImgAldeia)
+                @if (item.ImgAldeia != null){
+                    var _img64 = Convert.ToBase64String(item.ImgAldeia);
+                    var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                    <img src="@imgScr" alt="Teste" style="width:10%;" />
+                }
+                else
+                {
+                    <img src="~/Imagens/konoha.png" />
+                }
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PaisAldeia)
