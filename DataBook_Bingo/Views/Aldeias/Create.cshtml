@@ -1,30 +1,25 @@
 ﻿@model DataBook_Bingo.Models.Aldeia
 
-@{
-    ViewData["Title"] = "Create";
-}
-    <div style="padding-top:2%;" class="row">
-        <h4 style="text-indent:10px" class="text-warning"> Cadastre a sua Aldeia!</h4>
-    </div>
-<hr/>
-<div style="margin-left:5%;" class="row">
-    <div class="col-5 ">
+<i><img width="50px" src="~/Imagens/konoha.png" /><h4 style="text-indent:25px; font-family:Calibri;">Cadastrar Aldeia:</h4></i>
+
+<div style="margin-top:2%; margin-left:5%;" class="row">
+    <div class="col-5">
         <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NomeAldeia" class="control-label"></label>
-                <input asp-for="NomeAldeia" class="form-control form-control-lg" />
+                <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="NomeAldeia" class="control-label"></label>
+                <input type="search" asp-for="NomeAldeia" class="form-control btn-outline-dark" />
                 <span asp-validation-for="NomeAldeia" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImgAldeia" class="control-label"></label>
-                <input type="file" name="file" asp-for="ImgAldeia" class="bg-warning form-control form-control-lg" required />
+                <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="ImgAldeia" class="control-label"></label>
+                <input type="file" name="file" asp-for="ImgAldeia" class="form-control-file btn btn-outline-dark" required />
                 <span asp-validation-for="ImgAldeia" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PaisAldeia" class="control-label"></label>
-                <select asp-for="PaisAldeia" class="form-control form-control-lg">
-                    <option disabled selected>--- Selecione ---</option>
+                <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="PaisAldeia" class="control-label"></label>
+                <select asp-for="PaisAldeia" class="form-control btn-outline-dark">
+                    <option disabled selected>--- SELECT ---</option>
                     <option value="Agua">--- Água ---</option>
                     <option value="Fogo">--- Fogo ---</option>
                     <option value="Terra">--- Terra ---</option>
@@ -34,17 +29,17 @@
                 <span asp-validation-for="PaisAldeia" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-warning" />
+                <input type="submit" value="Salvar" class="btn  btn-dark" />
             </div>
         </form>
     </div>
-    <div class="col-5 ">
-        <img style=" border-radius:10px; filter: blur(1px);" src="~/Imagens/paisdofogo.jpg"/>
+    <div style="padding-left:3%;" class="col-5">
+        <img style=" filter: blur(1px) brightness(0.80); border-radius:5px; width:120%;" src="~/Imagens/mapa.png" />
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Retornar</a>
+    <a asp-action="Index">Retornar.</a>
 </div>
 
 @section Scripts {
