@@ -3,41 +3,51 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>Aldeia</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <div style="padding-top:2%;" class="row">
+        <h4 style="text-indent:10px" class="text-warning"> Cadastre a sua Aldeia!</h4>
+    </div>
+<hr/>
+<div style="margin-left:5%;" class="row">
+    <div class="col-5 ">
         <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="NomeAldeia" class="control-label"></label>
-                <input asp-for="NomeAldeia" class="form-control" />
+                <input asp-for="NomeAldeia" class="form-control form-control-lg" />
                 <span asp-validation-for="NomeAldeia" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImgAldeia" class="control-label"></label>
-                <input type="file" name="file" asp-for="ImgAldeia" class="form-control" required />
+                <input type="file" name="file" asp-for="ImgAldeia" class="bg-warning form-control form-control-lg" required />
                 <span asp-validation-for="ImgAldeia" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PaisAldeia" class="control-label"></label>
-                <input asp-for="PaisAldeia" class="form-control" />
+                <select asp-for="PaisAldeia" class="form-control form-control-lg">
+                    <option disabled selected>--- Selecione ---</option>
+                    <option value="Agua">--- Água ---</option>
+                    <option value="Fogo">--- Fogo ---</option>
+                    <option value="Terra">--- Terra ---</option>
+                    <option value="Trovao">--- Trovão ---</option>
+                    <option value="Vento">--- Vento ---</option>
+                </select>
                 <span asp-validation-for="PaisAldeia" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar" class="btn btn-warning" />
             </div>
         </form>
+    </div>
+    <div class="col-5 ">
+        <img style=" border-radius:10px; filter: blur(1px);" src="~/Imagens/paisdofogo.jpg"/>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retornar</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+@**@

@@ -16,10 +16,10 @@
                 @Html.DisplayNameFor(model => model.NomeAldeia)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImgAldeia)
+                @Html.DisplayNameFor(model => model.PaisAldeia)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PaisAldeia)
+                @Html.DisplayNameFor(model => model.ImgAldeia)
             </th>
             <th></th>
         </tr>
@@ -31,24 +31,15 @@
                 @Html.DisplayFor(modelItem => item.NomeAldeia)
             </td>
             <td>
-                @if (item.ImgAldeia != null){
+                @Html.DisplayFor(modelItem => item.PaisAldeia)
+            </td>
+            <td>
+                @if (item.ImgAldeia != null)
+                {
                     var _img64 = Convert.ToBase64String(item.ImgAldeia);
                     var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
                     <img src="@imgScr" alt="Teste" style="width:10%;" />
                 }
-                else
-                {
-                    <img src="~/Imagens/konoha.png" />
-                }
-
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaisAldeia)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAldeia">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAldeia">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAldeia">Delete</a>
             </td>
         </tr>
 }

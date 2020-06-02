@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pablo\\Desktop\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj": {}
+    "D:\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pablo\\Desktop\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj": {
+    "D:\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pablo\\Desktop\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj",
+        "projectUniqueName": "D:\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj",
         "projectName": "DataBook_Bingo",
-        "projectPath": "C:\\Users\\Pablo\\Desktop\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj",
-        "packagesPath": "C:\\Users\\Pablo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pablo\\Desktop\\DataBook_Bingo\\DataBook_Bingo\\obj\\",
+        "projectPath": "D:\\DataBook_Bingo\\DataBook_Bingo\\DataBook_Bingo.csproj",
+        "packagesPath": "C:\\Users\\Pablo Victor\\.nuget\\packages\\",
+        "outputPath": "D:\\DataBook_Bingo\\DataBook_Bingo\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Pablo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pablo Victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,6 +70,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -75,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
