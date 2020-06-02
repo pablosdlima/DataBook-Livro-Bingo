@@ -1,0 +1,72 @@
+﻿@model DataBook_Bingo.Models.Shinobi
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Shinobi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Aldeia_Id" class="control-label"></label>
+                <select asp-for="Aldeia_Id" class="form-control" asp-items="ViewBag.Aldeia_Id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeShinobi" class="control-label"></label>
+                <input asp-for="NomeShinobi" class="form-control" />
+                <span asp-validation-for="NomeShinobi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cla" class="control-label"></label>
+                <input asp-for="Cla" class="form-control" />
+                <span asp-validation-for="Cla" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Especialidade" class="control-label"></label>
+                <input asp-for="Especialidade" class="form-control" />
+                <span asp-validation-for="Especialidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Renegado" class="control-label"></label>
+                <input asp-for="Renegado" class="form-control" />
+                <span asp-validation-for="Renegado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vivo" class="control-label"></label>
+                <input asp-for="Vivo" class="form-control" />
+                <span asp-validation-for="Vivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elemento" class="control-label"></label>
+                <input asp-for="Elemento" class="form-control" />
+                <span asp-validation-for="Elemento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro" class="control-label"></label>
+                <input asp-for="Membro" class="form-control" />
+                <span asp-validation-for="Membro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nivel" class="control-label"></label>
+                <input asp-for="Nivel" class="form-control" />
+                <span asp-validation-for="Nivel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

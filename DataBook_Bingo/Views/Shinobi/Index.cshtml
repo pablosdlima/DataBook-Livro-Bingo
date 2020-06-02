@@ -1,0 +1,89 @@
+﻿@model IEnumerable<DataBook_Bingo.Models.Shinobi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeShinobi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagemShinobi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Renegado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Elemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aldeia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeShinobi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImagemShinobi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Renegado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Elemento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Membro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aldeia.NomeAldeia)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdShinobi">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdShinobi">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdShinobi">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

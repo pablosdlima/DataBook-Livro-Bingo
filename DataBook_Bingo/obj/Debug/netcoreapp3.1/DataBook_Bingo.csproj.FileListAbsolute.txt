@@ -499,3 +499,5 @@ C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.dll
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.pdb
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.genruntimeconfig.cache
+C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Index.cshtml.g.cs
+C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Create.cshtml.g.cs

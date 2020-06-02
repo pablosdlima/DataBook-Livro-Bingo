@@ -12,5 +12,6 @@ using DataBook_Bingo.Models;
         {
         }
 
-        public DbSet<DataBook_Bingo.Models.Aldeia> Aldeia { get; set; }
+        public DbSet<Aldeia> Aldeia { get; set; }
+        public DbSet<Shinobi> Shinobi { get; set; }
     }
