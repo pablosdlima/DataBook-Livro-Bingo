@@ -16,31 +16,10 @@
                 @Html.DisplayNameFor(model => model.NomeShinobi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImagemShinobi)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Cla)
-            </th>
+            </th>  
             <th>
-                @Html.DisplayNameFor(model => model.Especialidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Renegado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vivo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Elemento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Membro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nivel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Aldeia)
+                @Html.DisplayNameFor(model => model.ImagemShinobi)
             </th>
             <th></th>
         </tr>
@@ -52,37 +31,16 @@
                 @Html.DisplayFor(modelItem => item.NomeShinobi)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImagemShinobi)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Cla)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Especialidade)
-            </td>
+                @if (item.ImagemShinobi != null)
+                {
+                    var _img64 = Convert.ToBase64String(item.ImagemShinobi);
+                    var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                    <img src="@imgScr" alt="Teste" style="width:1%;" />
+                }
             <td>
-                @Html.DisplayFor(modelItem => item.Renegado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Elemento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Membro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nivel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aldeia.NomeAldeia)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdShinobi">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdShinobi">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdShinobi">Delete</a>
-            </td>
         </tr>
 }
     </tbody>

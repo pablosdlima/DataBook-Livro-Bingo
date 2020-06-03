@@ -44,7 +44,12 @@ namespace DataBook_Bingo.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         [Display(Name = "Elemento Principal: ")]
         public string Elemento { get; set; }
-        
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Graduação: ")]
+        public string Graduacao { get; set; }
+
+
         [Required(ErrorMessage = "Campo Obrigatório")]
         [Display(Name = "Membro: ")]
         public string Membro { get; set; }
