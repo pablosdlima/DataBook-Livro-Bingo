@@ -1,82 +1,158 @@
 ﻿@model DataBook_Bingo.Models.Shinobi
-
-@{
-    ViewData["Title"] = "Create";
-}
-
-<h1>Create</h1>
-
-<h4>Shinobi</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <div style="margin:2% 5%;">
         <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Aldeia_Id" class="control-label"></label>
-                <select asp-for="Aldeia_Id" class="form-control" asp-items="ViewBag.Aldeia_Id"></select>
+            <div class="form-group row">
+                <label asp-for="NomeShinobi" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <input asp-for="NomeShinobi" class="form-control btn-outline-dark" />
+                    <span asp-validation-for="NomeShinobi" class="text-danger"></span>
+                </div>
+                <label asp-for="ImagemShinobi" class="col-1 col-form-label"></label>
+                <div class="col-4">
+                    <input type="file" name="file" asp-for="ImagemShinobi" class="form-control-file btn-outline-dark" />
+                    <span asp-validation-for="ImagemShinobi" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="NomeShinobi" class="control-label"></label>
-                <input asp-for="NomeShinobi" class="form-control" />
-                <span asp-validation-for="NomeShinobi" class="text-danger"></span>
+                                     <hr>
+                                     <br>
+            <div class="form-group row">
+                <label asp-for="Cla" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Cla" class="form-control btn-outline-dark">
+                        <option disabled selected>- Selecione o Clã</option>
+                        <option value="Aburame">- Aburame -</option>
+                        <option value="Akimichi">- Akimichi -</option>
+                        <option value="Hatake">- Hatake -</option>
+                        <option value="Haruno">- Haruno -</option>
+                        <option value="Hyuga">- Hyuga -</option>
+                        <option value="Inuzuka">- Inuzuka -</option>
+                        <option value="Kaguya">- Kaguya -</option>
+                        <option value="Nara">- Nara -</option>
+                        <option value="Sarutobi">- Sarutobi -</option>
+                        <option value="Senju">- Senju -</option>
+                        <option value="Uchiha">- Uchiha -</option>
+                        <option value="Uzumaki">- Uzumaki -</option>
+                    </select>
+                    <span asp-validation-for="Cla" class="text-danger"></span>
+                </div>
+                 <label asp-for="Aldeia_Id" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Aldeia_Id" class="form-control btn-outline-dark" asp-items="ViewBag.Aldeia_Id">
+                        <option disabled selected>- Selecione a Vila</option>
+                    </select>
+                    <span asp-validation-for="Aldeia_Id" class="text-danger"></span>
+                </div>
+                <label asp-for="Especialidade" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Especialidade" class="form-control btn-outline-dark">
+                        <option disabled selected>- Selecione a Especialidade</option>
+                        <option value="Genjutsu">- Genjutsu -</option>
+                        <option value="Ninjutsu">- Ninjutsu -</option>
+                        <option value="Taijutsu">- Taijutsu -</option>
+                    </select>
+                    <span asp-validation-for="Especialidade" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="ImagemShinobi" class="control-label"></label>
-                <input type="file" name="file" asp-for="ImagemShinobi" class="form-control-file" />
-                <span asp-validation-for="ImagemShinobi" class="text-danger"></span>
+                                    <hr>
+                                    <br>
+            <div class="form-group row">
+                
+                <label asp-for="Renegado" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Renegado" class="form-control btn-outline-dark">
+                        <option disabled selected>- É Procurado?</option>
+                        <option value="n">- Não -</option>
+                        <option value="s">- Sim -</option>
+                    </select>
+                    <span asp-validation-for="Renegado" class="text-danger"></span>
+                </div>
+                <label asp-for="Vivo" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Vivo" class="form-control btn-outline-dark">
+                        <option disabled selected>- É Procurado?</option>
+                        <option value="n">- Não -</option>
+                        <option value="s">- Sim -</option>
+                    </select>
+                    <span asp-validation-for="Vivo" class="text-danger"></span>
+                </div>
+                 <label asp-for="Elemento" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Elemento" class="form-control btn-outline-dark">
+                        <option disabled selected>- Elemento: </option>
+                        <option value="nenhum">- Nenhum -</option>
+                        <option value="Água">- Água -</option>
+                        <option value="Fogo">- Fogo -</option>
+                        <option value="Terra">- Terra -</option>
+                        <option value="Trovão">- Trovão -</option>
+                        <option value="Vento">- Vento -</option>
+                    </select>
+                    <span asp-validation-for="Elemento" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Cla" class="control-label"></label>
-                <input asp-for="Cla" class="form-control" />
-                <span asp-validation-for="Cla" class="text-danger"></span>
+                                        <hr>
+                                        <br>
+            <div class="form-group row">
+                <label asp-for="Graduacao" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Graduacao" class="form-control btn-outline-dark">
+                        <option disabled selected>- Selecione o nivel </option>
+                        <option value="n">- Estudante -</option>
+                        <option value="Gennin">- Gennin -</option>
+                        <option value="Chunnin">- Chunnin -</option>
+                        <option value="Jounin">- Jounin -</option>
+                        <option value="Kage">- Kage -</option>
+                    </select>
+                    <span asp-validation-for="Graduacao" class="text-danger"></span>
+                </div>
+                <label asp-for="Membro" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Membro" class="form-control btn-outline-dark">
+                        <option disabled selected>- Selecione o grupo </option>
+                        <option value="Nenhum">- Nenhum -</option>
+                        <option value="Akatsuki">- Akatsuki -</option>
+                        <option value="Ambu">- Ambu -</option>
+                        <option value="Ambu Núcleo">- Ambu Núcleo -</option>
+                        <option value="Espadachins da Névoa">- Espadachins da Névoa -</option>
+                        <option value="Força Kinkaku">- Força Kinkaku -</option>
+                        <option value="Guardiões Ninja">- Guardiões Ninja -</option>
+                        <option value="Medicos">- Medicos -</option>
+                        <option value="Quarteto do Som">- Quarteto do Som -</option>
+                        <option value="Sannin">- Sannin -</option>
+                        <option value="Taka">- Taka -</option>
+                    </select>
+                    <span asp-validation-for="Membro" class="text-danger"></span>
+                </div>
+                <label asp-for="Nivel" class="col-1 col-form-label"></label>
+                <div class="col-3">
+                    <select asp-for="Nivel" class="form-control btn-outline-dark">
+                        <option disabled selected>- Selecione o Nível </option>
+                        <option value="N">- NADA -</option>
+                        <option value="D">- D -</option>
+                        <option value="C">- C -</option>
+                        <option value="B">- B -</option>
+                        <option value="A">- A -</option>
+                        <option value="S">- S -</option>
+                    </select>
+                    <span asp-validation-for="Nivel" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Especialidade" class="control-label"></label>
-                <input asp-for="Especialidade" class="form-control" />
-                <span asp-validation-for="Especialidade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Renegado" class="control-label"></label>
-                <input asp-for="Renegado" class="form-control" />
-                <span asp-validation-for="Renegado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Vivo" class="control-label"></label>
-                <input asp-for="Vivo" class="form-control" />
-                <span asp-validation-for="Vivo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Elemento" class="control-label"></label>
-                <input asp-for="Elemento" class="form-control" />
-                <span asp-validation-for="Elemento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Graduacao" class="control-label"></label>
-                <input asp-for="Graduacao" class="form-control" />
-                <span asp-validation-for="Graduacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Membro" class="control-label"></label>
-                <input asp-for="Membro" class="form-control" />
-                <span asp-validation-for="Membro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nivel" class="control-label"></label>
-                <input asp-for="Nivel" class="form-control" />
-                <span asp-validation-for="Nivel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group row">
+                <input type="submit" value="Salvar" class="btn btn-dark" />
             </div>
         </form>
     </div>
-</div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+@*
+
+            </form>
+        </div>
+    </div>*@
