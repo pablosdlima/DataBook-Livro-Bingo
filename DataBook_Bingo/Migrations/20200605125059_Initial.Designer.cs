@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBook_Bingo.Migrations
 {
     [DbContext(typeof(DataBook_BingoContext))]
-    [Migration("20200602185617_initi")]
-    partial class initi
+    [Migration("20200605125059_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,26 @@ namespace DataBook_Bingo.Migrations
                     b.ToTable("Aldeia");
                 });
 
+            modelBuilder.Entity("DataBook_Bingo.Models.Clas", b =>
+                {
+                    b.Property<int>("IdClas")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("ImageClas")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("NomeClas")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdClas");
+
+                    b.ToTable("Cla");
+                });
+
             modelBuilder.Entity("DataBook_Bingo.Models.Shinobi", b =>
                 {
                     b.Property<int>("IdShinobi")
@@ -65,6 +85,14 @@ namespace DataBook_Bingo.Migrations
                     b.Property<string>("Especialidade")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Graduacao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("ImagemShinobi")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Membro")
                         .IsRequired()

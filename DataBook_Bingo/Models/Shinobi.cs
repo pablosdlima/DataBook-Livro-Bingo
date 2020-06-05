@@ -18,16 +18,16 @@ namespace DataBook_Bingo.Models
         public int Aldeia_Id { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Clã: ")]
+        public int Cla_Id { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
         [Display(Name ="Nome: ")]
         public string NomeShinobi { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         [Display(Name = "Imagem: ")]
         public byte[] ImagemShinobi { get; set; }
-
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Clã: ")]
-        public string Cla { get; set; }
         
         [Required(ErrorMessage = "Campo Obrigatório")]
         [Display(Name = "Especialidade: ")]
@@ -60,6 +60,10 @@ namespace DataBook_Bingo.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         [ForeignKey("Aldeia_Id")]
         public virtual Aldeia Aldeia { get; set; }
-        
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [ForeignKey("Cla_Id")]
+        public virtual Clas Clas { get; set; }
+
     }
 }

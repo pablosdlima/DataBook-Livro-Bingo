@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBook_Bingo.Migrations
 {
     [DbContext(typeof(DataBook_BingoContext))]
-    [Migration("20200603140819_Graduacao")]
-    partial class Graduacao
+    [Migration("20200605151924_AlteracaoShinobi")]
+    partial class AlteracaoShinobi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,26 @@ namespace DataBook_Bingo.Migrations
                     b.ToTable("Aldeia");
                 });
 
+            modelBuilder.Entity("DataBook_Bingo.Models.Clas", b =>
+                {
+                    b.Property<int>("IdClas")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("ImageClas")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("NomeClas")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdClas");
+
+                    b.ToTable("Cla");
+                });
+
             modelBuilder.Entity("DataBook_Bingo.Models.Shinobi", b =>
                 {
                     b.Property<int>("IdShinobi")
@@ -54,9 +74,8 @@ namespace DataBook_Bingo.Migrations
                     b.Property<int>("Aldeia_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Cla")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Cla_Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Elemento")
                         .IsRequired()
@@ -98,6 +117,8 @@ namespace DataBook_Bingo.Migrations
 
                     b.HasIndex("Aldeia_Id");
 
+                    b.HasIndex("Cla_Id");
+
                     b.ToTable("Shinobi");
                 });
 
@@ -106,6 +127,12 @@ namespace DataBook_Bingo.Migrations
                     b.HasOne("DataBook_Bingo.Models.Aldeia", "Aldeia")
                         .WithMany()
                         .HasForeignKey("Aldeia_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataBook_Bingo.Models.Clas", "Clas")
+                        .WithMany()
+                        .HasForeignKey("Cla_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

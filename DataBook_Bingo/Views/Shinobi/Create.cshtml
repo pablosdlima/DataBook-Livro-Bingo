@@ -1,4 +1,7 @@
 ﻿@model DataBook_Bingo.Models.Shinobi
+
+    <i><img width="20px" src="~/Imagens/kunai.png" /><h4 style="text-indent:25px; font-family:Calibri;">Cadastrar Shinobi:</h4></i>
+
     <div style="margin:2% 5%;">
         <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -17,24 +20,12 @@
                                      <hr>
                                      <br>
             <div class="form-group row">
-                <label asp-for="Cla" class="col-1 col-form-label"></label>
+                <label asp-for="Cla_Id" class="col-1 col-form-label"></label>
                 <div class="col-3">
-                    <select asp-for="Cla" class="form-control btn-outline-dark">
+                    <select asp-for="Cla_Id" class="form-control btn-outline-dark" asp-items="ViewBag.Cla_Id">
                         <option disabled selected>- Selecione o Clã</option>
-                        <option value="Aburame">- Aburame -</option>
-                        <option value="Akimichi">- Akimichi -</option>
-                        <option value="Hatake">- Hatake -</option>
-                        <option value="Haruno">- Haruno -</option>
-                        <option value="Hyuga">- Hyuga -</option>
-                        <option value="Inuzuka">- Inuzuka -</option>
-                        <option value="Kaguya">- Kaguya -</option>
-                        <option value="Nara">- Nara -</option>
-                        <option value="Sarutobi">- Sarutobi -</option>
-                        <option value="Senju">- Senju -</option>
-                        <option value="Uchiha">- Uchiha -</option>
-                        <option value="Uzumaki">- Uzumaki -</option>
                     </select>
-                    <span asp-validation-for="Cla" class="text-danger"></span>
+                    <span asp-validation-for="Cla_Id" class="text-danger"></span>
                 </div>
                  <label asp-for="Aldeia_Id" class="col-1 col-form-label"></label>
                 <div class="col-3">
@@ -70,7 +61,7 @@
                 <label asp-for="Vivo" class="col-1 col-form-label"></label>
                 <div class="col-3">
                     <select asp-for="Vivo" class="form-control btn-outline-dark">
-                        <option disabled selected>- É Procurado?</option>
+                        <option disabled selected>- Selecione</option>
                         <option value="n">- Não -</option>
                         <option value="s">- Sim -</option>
                     </select>

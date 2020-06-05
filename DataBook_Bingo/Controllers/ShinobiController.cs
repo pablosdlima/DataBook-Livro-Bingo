@@ -22,19 +22,20 @@ namespace DataBook_Bingo.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var _contextShinobi = _Context.Shinobi.Include(s => s.Aldeia); //variavel contem caracteristicas da tabela Shinobi com relação(Include) a Aldeia
+            var _contextShinobi = _Context.Shinobi.Include(s => s.Aldeia).Include(q => q.Clas); //variavel contem caracteristicas da tabela Shinobi com relação(Include) a Aldeia
             return View(await _contextShinobi.ToListAsync()); //retornar...
         }
 
         public IActionResult Create()
         {
             ViewData["Aldeia_Id"] = new SelectList(_Context.Aldeia, "IdAldeia", "NomeAldeia"); //retorno do relacionamento
+            ViewData["Cla_Id"] = new SelectList(_Context.Clas, "IdClas", "NomeClas");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdShinobi,Aldeia_Id,NomeShinobi,ImagemShinobi,Cla,Especialidade,Renegado,Vivo,Elemento,Graduacao,Membro,Nivel")] Shinobi shinobi, IList<IFormFile> file)
+        public async Task<IActionResult> Create([Bind("IdShinobi,Aldeia_Id,Cla_Id,NomeShinobi,ImagemShinobi,Especialidade,Renegado,Vivo,Elemento,Graduacao,Membro,Nivel")] Shinobi shinobi, IList<IFormFile> file)
         {
             IFormFile imgShinobi = file.FirstOrDefault();
             if (imgShinobi != null || imgShinobi.ContentType.ToLower().StartsWith("image/"))
@@ -50,6 +51,7 @@ namespace DataBook_Bingo.Controllers
                 }
             }
             ViewData["Aldeia_Id"] = new SelectList(_Context.Aldeia, "IdAldeia", "NomeAldeia", shinobi.Aldeia_Id); //com ViewData retorna um select no html que dára as opções contidas em NomeAldeia com valores IdAldeia para o atr Id_Aldeia
+            ViewData["Cla_Id"] = new SelectList(_Context.Clas, "IdClas", "NomeClas", shinobi.Cla_Id); //com ViewData retorna um select no html que dára as opções contidas em NomeAldeia com valores IdAldeia para o atr Id_Aldeia
 
             return View(shinobi);
         }
