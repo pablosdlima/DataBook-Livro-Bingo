@@ -1,47 +1,24 @@
 ﻿@model IEnumerable<DataBook_Bingo.Models.Aldeia>
 
-@{
-    ViewData["Title"] = "Index";
-}
+<br />
+<h3 style="text-indent:25px; font-family:Calibri;">Vilas já Cadastradas...</h3>
+<h5><a asp-action="Create">Inserir Novo</a></h5>
+<br />
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeAldeia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PaisAldeia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImgAldeia)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeAldeia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaisAldeia)
-            </td>
-            <td>
-                @if (item.ImgAldeia != null)
-                {
-                    var _img64 = Convert.ToBase64String(item.ImgAldeia);
-                    var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
-                    <img src="@imgScr" alt="Teste" style="width:10%;" />
-                }
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div style="padding-left:8%;" class="row">
+    @foreach (var item in Model)
+    {
+        <figure class="col-md-2 border-left border-bottom">
+            @if (item.ImgAldeia != null)
+            {
+                <figcaption align="center">@Html.DisplayFor(modelItem => item.NomeAldeia)</figcaption>
+                <hr />
+                var _img64 = Convert.ToBase64String(item.ImgAldeia);
+                var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                <img src="@imgScr" alt="Teste" style="margin-left:15%; width:70%;" class="figure-img" />
+            }
+        </figure>
+    }
+    <figure class="col-md-2 border-left">
+    </figure>
+</div>
