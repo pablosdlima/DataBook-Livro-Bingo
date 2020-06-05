@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DataBook_Bingo.Models.Clas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeClas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageClas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeClas)
+            </td>
+            <td>
+                @if (item.ImageClas != null)
+                {
+                    var _img64 = Convert.ToBase64String(item.ImageClas);
+                    var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                    <img src="@imgScr" alt="Teste" style="width:10%;" />
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

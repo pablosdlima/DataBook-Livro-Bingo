@@ -1,0 +1,38 @@
+﻿@model DataBook_Bingo.Models.Clas
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Clas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeClas" class="control-label"></label>
+                <input asp-for="NomeClas" class="form-control" />
+                <span asp-validation-for="NomeClas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageClas" class="control-label"></label>
+                <input type="file" name="file" class="form-control" required/>
+                <span asp-validation-for="ImageClas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
