@@ -1,0 +1,41 @@
+﻿*{
+    margin:0%;
+    padding:0%;
+}
+
+.pagina{
+    margin-top:0.5%;
+    width:50%;
+    height:78vh;
+    background-color:#e8d7c0;
+    border-left:1px solid silver;
+    float:left;
+}
+
+.nome{
+    width:18%;
+    margin-left:6%;
+    margin-bottom:1%;
+    text-indent:5%;
+    border-bottom-style:double;
+    border-bottom-width:6px;
+    border-color:silver;
+    line-height:30px;
+    color:grey;
+}
+
+.foto {
+    width: 60%;
+    height: 70%;
+    margin-left: 5%;
+    background-color: snow;
+    position: relative;
+}
+
+.fotoM {
+    width: 20%;
+    height: 20%;
+    margin-right: 5%;
+    position:relative;
+    background-color: snow;
+}

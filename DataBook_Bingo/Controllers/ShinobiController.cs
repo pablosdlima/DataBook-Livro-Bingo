@@ -26,6 +26,12 @@ namespace DataBook_Bingo.Controllers
             return View(await _contextShinobi.ToListAsync()); //retornar...
         }
 
+        public async Task<IActionResult> Renegados()
+        {
+            var _contextShinobi = _Context.Shinobi.Include(s => s.Aldeia).Include(s => s.Clas);
+            return View(await _contextShinobi.ToListAsync());
+        }
+
         public IActionResult Create()
         {
             ViewData["Aldeia_Id"] = new SelectList(_Context.Aldeia, "IdAldeia", "NomeAldeia"); //retorno do relacionamento

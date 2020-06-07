@@ -43,9 +43,9 @@ namespace DataBook_Bingo.Migrations
                     IdShinobi = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Aldeia_Id = table.Column<int>(nullable: false),
+                    Cla_Id = table.Column<int>(nullable: false),
                     NomeShinobi = table.Column<string>(nullable: false),
                     ImagemShinobi = table.Column<byte[]>(nullable: false),
-                    Cla = table.Column<string>(nullable: false),
                     Especialidade = table.Column<string>(nullable: false),
                     Renegado = table.Column<string>(nullable: false),
                     Vivo = table.Column<string>(nullable: false),
@@ -63,24 +63,35 @@ namespace DataBook_Bingo.Migrations
                         principalTable: "Aldeia",
                         principalColumn: "IdAldeia",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Shinobi_Cla_Cla_Id",
+                        column: x => x.Cla_Id,
+                        principalTable: "Cla",
+                        principalColumn: "IdClas",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Shinobi_Aldeia_Id",
                 table: "Shinobi",
                 column: "Aldeia_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Shinobi_Cla_Id",
+                table: "Shinobi",
+                column: "Cla_Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cla");
-
-            migrationBuilder.DropTable(
                 name: "Shinobi");
 
             migrationBuilder.DropTable(
                 name: "Aldeia");
+
+            migrationBuilder.DropTable(
+                name: "Cla");
         }
     }
 }

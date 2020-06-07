@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBook_Bingo.Migrations
 {
     [DbContext(typeof(DataBook_BingoContext))]
-    [Migration("20200605125059_Initial")]
+    [Migration("20200606155144_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,9 +74,8 @@ namespace DataBook_Bingo.Migrations
                     b.Property<int>("Aldeia_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Cla")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Cla_Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Elemento")
                         .IsRequired()
@@ -118,6 +117,8 @@ namespace DataBook_Bingo.Migrations
 
                     b.HasIndex("Aldeia_Id");
 
+                    b.HasIndex("Cla_Id");
+
                     b.ToTable("Shinobi");
                 });
 
@@ -126,6 +127,12 @@ namespace DataBook_Bingo.Migrations
                     b.HasOne("DataBook_Bingo.Models.Aldeia", "Aldeia")
                         .WithMany()
                         .HasForeignKey("Aldeia_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataBook_Bingo.Models.Clas", "Clas")
+                        .WithMany()
+                        .HasForeignKey("Cla_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
