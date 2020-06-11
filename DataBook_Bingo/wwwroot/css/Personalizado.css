@@ -45,7 +45,15 @@
 
 .rodape {
     width: 60%;
-    height: 10%;
+    height: 21%;
     background-color: snow;
-    float:left;
+    position: relative;
+    bottom: 46%;
+    left: 4%;
+}
+
+.nivel {
+    width: 32%;
+    height: 100%;
+    background-color: currentcolor;
 }
