@@ -1,42 +1,44 @@
 ﻿@model IEnumerable<DataBook_Bingo.Models.Shinobi>
 
-<div class="pagina">
-    <div class="titulo">
 
-    </div>
-    <div class="aldeia">
+@foreach (var item in Model)
+{
+    <div class="pagina">
+        <div class="titulo">
+            <ul>
+                <li> - @Html.DisplayFor(modelItem => item.NomeShinobi)</li>
+                <li>@Html.DisplayFor(modelItem => item.Clas.NomeClas)</li>
+            </ul>
+        </div>
+        <div class="aldeia">
+            @if (item.ImagemShinobi != null)
+            {
+                var _img64 = Convert.ToBase64String(item.Aldeia.ImgAldeia);
+                var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                <img src="@imgScr" alt="Teste" />
+            }
+        </div>
+        <div class="aldeia cla">
+            @if (item.ImagemShinobi != null)
+            {
+                var _img64 = Convert.ToBase64String(item.Clas.ImageClas);
+                var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                <img src="@imgScr" alt="Teste"/>
+            }
+        </div>
+        <div class="foto">
+            @if (item.ImagemShinobi != null)
+            {
+                var _img64 = Convert.ToBase64String(item.ImagemShinobi);
+                var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                <img src="@imgScr" alt="Teste"/>
+            }
+        </div>
+        <div class="rodape">
+            <div class="nivel">
 
-    </div>
-    <div class="aldeia cla">
-
-    </div>
-    <div class="foto">
-
-    </div>
-    <div class="rodape">
-        <div class="nivel">
-
+            </div>
         </div>
     </div>
-</div>
 
-<div class="pagina">
-    <div class="titulo">
-
-    </div>
-    <div class="aldeia">
-
-    </div>
-    <div class="aldeia cla">
-
-    </div>
-    <div class="foto">
-
-    </div>
-    <div class="rodape">
-        <div class="nivel">
-
-        </div>
-    </div>
-</div>
-
+}

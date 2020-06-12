@@ -8,26 +8,37 @@
     margin-left: 0.5%;
     width: 48%;
     height: 77vh;
-    background-color: #e8d7c0;
+    background-color: #bfb19e;
     border-left: 1px solid silver;
-    float: left;
 }
 
 .titulo {
     width: 45%;
     height: 8%;
-    background-color: snow;
     margin-left:5%;
     margin-top:1%;
     float: left;
+    border-bottom:1px double snow;
+}
+
+.titulo ul li{
+    display:inline;
+    list-style:none;
+    font-family:Calibri,'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:2.0em;
+    line-height:40px;
 }
 
 .aldeia {
     width: 21%;
     height: 27%;
-    background: pink;
     position: relative;
     left: 67%;
+}
+
+.aldeia img{
+    width: 64%;
+    float: right;
 }
 
 .cla {
@@ -36,11 +47,18 @@
 
 .foto {
     width: 60%;
-    height: 64%;
+    height: 60%;
     background-color: snow;
     position: relative;
     bottom: 48%;
     left: 4%;
+}
+
+.foto img{
+    width:100%;
+    height:100%;
+    background-attachment:fixed;
+    border-radius:5px;
 }
 
 .rodape {
