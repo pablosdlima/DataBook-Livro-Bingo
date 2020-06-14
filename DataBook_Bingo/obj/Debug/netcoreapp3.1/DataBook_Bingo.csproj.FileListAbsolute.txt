@@ -642,8 +642,6 @@ C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\runt
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.csprojAssemblyReference.cache
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.AssemblyInfoInputs.cache
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.AssemblyInfo.cs
-C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.csproj.CoreCompileInputs.cache
-C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.MvcApplicationPartsAssemblyInfo.cache
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.RazorAssemblyInfo.cache
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.RazorAssemblyInfo.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.TagHelpers.input.cache
@@ -676,3 +674,7 @@ C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Clas\Index.cshtml.g.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Renegados.cshtml.g.cs
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Renegados.cshtml.g.cs
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\PagedList.dll
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.csproj.CoreCompileInputs.cache
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.MvcApplicationPartsAssemblyInfo.cache

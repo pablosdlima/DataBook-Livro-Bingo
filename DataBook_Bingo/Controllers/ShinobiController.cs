@@ -28,7 +28,7 @@ namespace DataBook_Bingo.Controllers
 
         public async Task<IActionResult> Renegados()
         {
-            var _contextShinobi = _Context.Shinobi.Include(s => s.Aldeia).Include(s => s.Clas);
+            var _contextShinobi = _Context.Shinobi.OrderByDescending(i => i.IdShinobi).Include(s => s.Aldeia).Include(s => s.Clas);
             return View(await _contextShinobi.ToListAsync());
         }
 
@@ -39,7 +39,7 @@ namespace DataBook_Bingo.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost] 
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdShinobi,Aldeia_Id,Cla_Id,NomeShinobi,ImagemShinobi,Especialidade,Renegado,Vivo,Elemento,Graduacao,Membro,Nivel")] Shinobi shinobi, IList<IFormFile> file)
         {

@@ -18,12 +18,18 @@
                 <img src="@imgScr" alt="Teste" />
             }
         </div>
+        @if (item.Renegado != 'n')
+        {
+            <div class="aldeia renegado">
+                <img src="~/Imagens/minus.png" />
+            </div>
+        }
         <div class="aldeia cla">
             @if (item.ImagemShinobi != null)
             {
                 var _img64 = Convert.ToBase64String(item.Clas.ImageClas);
                 var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
-                <img src="@imgScr" alt="Teste"/>
+                <img src="@imgScr" alt="Teste" />
             }
         </div>
         <div class="foto">
@@ -31,14 +37,18 @@
             {
                 var _img64 = Convert.ToBase64String(item.ImagemShinobi);
                 var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
-                <img src="@imgScr" alt="Teste"/>
+                <img src="@imgScr" alt="Teste" />
             }
         </div>
         <div class="rodape">
-            <div class="nivel">
-
-            </div>
+            <ul>
+                <li>Graduação: @Html.DisplayFor(modelItem => item.Graduacao)</li>
+                <li>Especialidade: @Html.DisplayFor(modelItem => item.Especialidade)</li>
+                <li>Elemento: @Html.DisplayFor(modelItem => item.Elemento)</li>
+            </ul>
         </div>
     </div>
+
+
 
 }

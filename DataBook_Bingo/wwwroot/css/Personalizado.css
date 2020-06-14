@@ -4,13 +4,17 @@
 }
 
 .pagina {
-    margin-top: 0.5%;
+    margin-top: 1%;
     margin-left: 0.5%;
     width: 48%;
     height: 77vh;
-    background-color: #bfb19e;
+    background-color: #f7f7f3;
     border-left: 1px solid silver;
+    display: inline-block;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius:1%;
 }
+
 
 .titulo {
     width: 45%;
@@ -18,7 +22,7 @@
     margin-left:5%;
     margin-top:1%;
     float: left;
-    border-bottom:1px double snow;
+    border-bottom:1px double silver;
 }
 
 .titulo ul li{
@@ -30,10 +34,12 @@
 }
 
 .aldeia {
-    width: 21%;
+    width: 11%;
     height: 27%;
-    position: relative;
-    left: 67%;
+    display: inline-block;
+    float: right;
+    position: absolute;
+    margin: 4% 8%;
 }
 
 .aldeia img{
@@ -41,17 +47,20 @@
     float: right;
 }
 
+.renegado img{
+    width: 64%;
+    float: right;
+     z-index:9999;
+}
+
 .cla {
-    margin-top: 4%;
+    margin-top: 13%;
 }
 
 .foto {
     width: 60%;
     height: 60%;
-    background-color: snow;
-    position: relative;
-    bottom: 48%;
-    left: 4%;
+    margin: 9% 5%;
 }
 
 .foto img{
@@ -64,14 +73,19 @@
 .rodape {
     width: 60%;
     height: 21%;
-    background-color: snow;
-    position: relative;
-    bottom: 46%;
-    left: 4%;
+    margin: -8% 5%;
+}
+
+.rodape ul li{
+    text-align:center;
+    list-style:none;
+    border-bottom:2px solid silver;
+    line-height:35px;
+    font-size:1.2em;
 }
 
 .nivel {
     width: 32%;
     height: 100%;
-    background-color: currentcolor;
+    float:left;
 }

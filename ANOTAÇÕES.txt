@@ -6,3 +6,11 @@ alterações no sql
 após
 
 	Update-Database
+
+--------------------------------------------------------
+
+Paged List 
+	install-package PagedList.Mvc
+
+--------------------------------------------------------
+
