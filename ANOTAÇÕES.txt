@@ -10,7 +10,9 @@ após
 --------------------------------------------------------
 
 Paged List 
-	install-package PagedList.Mvc
+	install-package PagedList.Mvc.Core
+
+referencia: http://www.macoratti.net/20/02/aspc_pagina1.htm
 
 --------------------------------------------------------
 

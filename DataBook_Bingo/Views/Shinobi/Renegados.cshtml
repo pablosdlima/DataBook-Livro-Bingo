@@ -1,5 +1,5 @@
-﻿@model IEnumerable<DataBook_Bingo.Models.Shinobi>
-
+﻿@model X.PagedList.IPagedList<DataBook_Bingo.Models.Shinobi>
+@using X.PagedList.Mvc.Core;
 
 @foreach (var item in Model)
 {
@@ -48,7 +48,5 @@
             </ul>
         </div>
     </div>
-
-
-
 }
+@Html.PagedListPager(Model, pagina => Url.Action("Renegados", new { pagina }))

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using X.PagedList;
 using System.Linq;
 using System.Threading.Tasks;
 using DataBook_Bingo.Models;
+using PagedList;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -26,10 +28,13 @@ namespace DataBook_Bingo.Controllers
             return View(await _contextShinobi.ToListAsync()); //retornar...
         }
 
-        public async Task<IActionResult> Renegados()
+        public async Task<IActionResult> Renegados(int? pagina)
         {
-            var _contextShinobi = _Context.Shinobi.OrderByDescending(i => i.IdShinobi).Include(s => s.Aldeia).Include(s => s.Clas);
-            return View(await _contextShinobi.ToListAsync());
+            int itemPagina = 2;
+            int numeroPagina = (pagina ?? 1);
+
+            var _contextShinobi = _Context.Shinobi.OrderBy(i => i.NomeShinobi).Include(s => s.Aldeia).Include(s => s.Clas); // id ordenado com junções de tabela em paginas de lista.
+            return View(await _contextShinobi.ToPagedListAsync(numeroPagina, itemPagina));
         }
 
         public IActionResult Create()
