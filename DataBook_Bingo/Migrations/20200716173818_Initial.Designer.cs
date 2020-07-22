@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBook_Bingo.Migrations
 {
     [DbContext(typeof(DataBook_BingoContext))]
-    [Migration("20200606155144_Initial")]
+    [Migration("20200716173818_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,15 +28,12 @@ namespace DataBook_Bingo.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<byte[]>("ImgAldeia")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("NomeAldeia")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PaisAldeia")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdAldeia");
@@ -52,16 +49,35 @@ namespace DataBook_Bingo.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<byte[]>("ImageClas")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("NomeClas")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdClas");
 
                     b.ToTable("Cla");
+                });
+
+            modelBuilder.Entity("DataBook_Bingo.Models.Organizacao", b =>
+                {
+                    b.Property<int>("IdOrganizacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("ImgOrganizacao")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int>("Limite")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NomeOrganizacao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdOrganizacao");
+
+                    b.ToTable("Organizacao");
                 });
 
             modelBuilder.Entity("DataBook_Bingo.Models.Shinobi", b =>
@@ -78,32 +94,22 @@ namespace DataBook_Bingo.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Elemento")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Especialidade")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Graduacao")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("ImagemShinobi")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Membro")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nivel")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
                     b.Property<string>("NomeShinobi")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Organizacao_Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Renegado")
                         .IsRequired()
@@ -119,6 +125,8 @@ namespace DataBook_Bingo.Migrations
 
                     b.HasIndex("Cla_Id");
 
+                    b.HasIndex("Organizacao_Id");
+
                     b.ToTable("Shinobi");
                 });
 
@@ -133,6 +141,12 @@ namespace DataBook_Bingo.Migrations
                     b.HasOne("DataBook_Bingo.Models.Clas", "Clas")
                         .WithMany()
                         .HasForeignKey("Cla_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataBook_Bingo.Models.Organizacao", "Organizacao")
+                        .WithMany()
+                        .HasForeignKey("Organizacao_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

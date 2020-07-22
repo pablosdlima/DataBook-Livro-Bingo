@@ -21,41 +21,22 @@ namespace DataBook_Bingo.Models
         [Display(Name = "Clã: ")]
         public int Cla_Id { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name ="Nome: ")]
+        [Display(Name = "Organização: ")]
+        public int Organizacao_Id { get; set; }
+
         public string NomeShinobi { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Imagem: ")]
         public byte[] ImagemShinobi { get; set; }
         
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Especialidade: ")]
         public string Especialidade { get; set; }
         
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Renegado?: ")]
         public char Renegado { get; set; }
         
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Vivo?: ")]
         public char Vivo { get; set; }
         
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Elemento Principal: ")]
         public string Elemento { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Graduação: ")]
         public string Graduacao { get; set; }
-
-
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Membro: ")]
-        public string Membro { get; set; }
-        
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        public char Nivel { get; set; }
         
         [Required(ErrorMessage = "Campo Obrigatório")]
         [ForeignKey("Aldeia_Id")]
@@ -64,6 +45,9 @@ namespace DataBook_Bingo.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         [ForeignKey("Cla_Id")]
         public virtual Clas Clas { get; set; }
+
+        [ForeignKey("Organizacao_Id")]
+        public virtual Organizacao Organizacao { get; set; }
 
     }
 }

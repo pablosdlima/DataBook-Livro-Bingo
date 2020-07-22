@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.Extensions.WebEncoders.Testing;
+using SQLitePCL;
+using DataBook_Bingo.ViewModel;
 
 namespace DataBook_Bingo.Controllers
 {
@@ -22,27 +24,27 @@ namespace DataBook_Bingo.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscaAldeia = null)
         {
+            var totalAlerta2 = _context.Aldeia.Count();
+            ViewBag.TotalAldeiaAlerta = totalAlerta2;
 
-            return View(await _context.Aldeia.ToListAsync());
-        }
+            ViewBag.TotalAldeia = totalAlerta2;
 
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
+            if ((buscaAldeia != null))
             {
-                return NotFound();
+                var totalAlerta = _context.Aldeia.Count();
+                ViewBag.TotalAldeiaAlerta = totalAlerta;
+
+                var total = _context.Aldeia.Where(a => a.NomeAldeia.Contains(buscaAldeia)).Count();
+                ViewBag.TotalAldeia = total;
+
+                var retorno = _context.Aldeia.Where(a => a.NomeAldeia.Contains(buscaAldeia));
+                return View(await retorno.ToListAsync());
             }
 
-            var aldeia = await _context.Aldeia
-                .FirstOrDefaultAsync(m => m.IdAldeia == id);
-            if (aldeia == null)
-            {
-                return NotFound();
-            }
-
-            return View(aldeia);
+            var Aldeia = _context.Aldeia.OrderByDescending(a => a.IdAldeia);
+            return View(await Aldeia.ToListAsync());
         }
 
         public IActionResult Create()
@@ -52,22 +54,29 @@ namespace DataBook_Bingo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdAldeia,NomeAldeia,PaisAldeia")] Aldeia aldeia, IList<IFormFile> file)
+        public async Task<IActionResult> Create(AldeiaViewModel model, IList<IFormFile> file)
         {
             IFormFile img = file.FirstOrDefault();
             if (img != null || img.ContentType.ToLower().StartsWith("image/"))
             {
                 MemoryStream ms = new MemoryStream();
                 img.OpenReadStream().CopyTo(ms);
-                aldeia.ImgAldeia = ms.ToArray();
-                if (aldeia.ImgAldeia != null)
-                {
-                     _context.Add(aldeia);
-                     await _context.SaveChangesAsync();
-                     return RedirectToAction(nameof(Index));
-                }      
-            }         
-            return View(aldeia);
+                model.ImgAldeia = ms.ToArray(); 
+            }
+
+            Aldeia aldeia = new Aldeia
+            {
+                NomeAldeia = model.NomeAldeia,
+                ImgAldeia = model.ImgAldeia,
+                PaisAldeia = model.PaisAldeia
+            };
+            if (aldeia != null)
+            {
+                 _context.Add(aldeia);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }             
+            return View(model);
         }
         private bool AldeiaExists(int id)
         {

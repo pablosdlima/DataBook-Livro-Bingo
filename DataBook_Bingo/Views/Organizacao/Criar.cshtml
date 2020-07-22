@@ -1,0 +1,43 @@
+﻿@model DataBook_Bingo.ViewModel.OrganizacaoViewModel
+
+<i><img width="40px" src="~/Imagens/konoha.png" /><h4 style="text-indent:25px; font-family:Calibri;">Cadastrar Organização:</h4></i>
+
+<div style="margin-top:2%; margin-left:5%;" class="row">
+    <div class="col-5">
+        <form asp-action="Criar" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="NomeOrganizacao" class="control-label"></label>
+                <input type="search" asp-for="NomeOrganizacao" class="form-control btn-outline-dark" />
+                <span asp-validation-for="NomeOrganizacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="ImgOrganizacao" class="control-label"></label>
+                <input type="file" name="file" asp-for="ImgOrganizacao" class="form-control-file btn btn-outline-dark"/>
+                <span asp-validation-for="ImgOrganizacao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="Limite" class="control-label"></label>
+                <input value="0" type="number" asp-for="Limite" class="form-control btn-outline-dark" />
+                <span asp-validation-for="Limite" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn  btn-dark" />
+            </div>
+        </form>
+    </div>
+    <div style="padding-left:3%;" class="col-5">
+        <img style=" filter: blur(1px) brightness(0.80); border-radius:5px; width:120%;" src="~/Imagens/amb.png" />
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-info">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DataBook_Bingo.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using DataBook_Bingo.ViewModel;
 
 namespace DataBook_Bingo.Controllers
 {
@@ -21,9 +22,26 @@ namespace DataBook_Bingo.Controllers
         }
 
         // GET: Clas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscaAldeia = null)
         {
-            return View(await _context.Clas.ToListAsync());
+            var totalAlerta2 = _context.Clas.Count();
+            ViewBag.TotalAldeiaAlerta = totalAlerta2;
+
+            ViewBag.TotalAldeia = totalAlerta2;
+
+            if ((buscaAldeia != null))
+            {
+                var totalAlerta = _context.Aldeia.Count();
+                ViewBag.TotalAldeiaAlerta = totalAlerta;
+
+                var total = _context.Clas.Where(a => a.NomeClas.Contains(buscaAldeia)).Count();
+                ViewBag.TotalAldeia = total;
+
+                var retorno = _context.Clas.Where(a => a.NomeClas.Contains(buscaAldeia));
+                return View(await retorno.ToListAsync());
+            }
+            var Clas = _context.Clas.OrderByDescending(a => a.IdClas);
+            return View(await Clas.ToListAsync());
         }
 
         public IActionResult Create()
@@ -33,19 +51,33 @@ namespace DataBook_Bingo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdClas,NomeClas")] Clas clas, IList<IFormFile> file)
+        public async Task<IActionResult> Create(ClasViewModel model, IList<IFormFile> file)
         {
+            if(file.Count > 0)
+            {
                 IFormFile imgCla = file.FirstOrDefault();
+
                 if (imgCla != null || imgCla.ContentType.ToLower().StartsWith("image/"))
                 {
                     MemoryStream ms = new MemoryStream();
                     imgCla.OpenReadStream().CopyTo(ms);
-                    clas.ImageClas = ms.ToArray();
-
-                    _context.Add(clas);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    model.ImageClas = ms.ToArray();
                 }
+            }         
+
+            Clas clas = new Clas
+            {
+                NomeClas = model.NomeClas,
+                ImageClas = model.ImageClas
+            };
+
+            if (clas != null)
+            {
+                _context.Add(clas);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
             return View(clas);
         }
  

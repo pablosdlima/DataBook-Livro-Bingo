@@ -1,23 +1,44 @@
 ﻿@model IEnumerable<DataBook_Bingo.Models.Clas>
 
-@{
-    ViewData["Title"] = "Index";
-}
-<br/>
-<h3 style="text-indent:25px; font-family:Calibri;">Clãs já Cadastrados...</h3>
-<h5><a asp-action="Create">Inserir Novo</a></h5>
-<br />
-<div style="padding-left:8%;" class="row">
+<div id="aviso" class="alert alert-warning alert-dismissible" role="alert" >
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong aria-hidden="true" style="text-indent:25px; font-family:Calibri; color:slategrey;">
+        Total de @ViewBag.TotalAldeiaAlerta Clã(s) já Cadastrado(s)...
+    </strong>
+</div>
+<div style="padding-left: 2%; padding-top: 1%;" class="row">
+    <div class="btn-group btn-group-justified busca">
+        <form asp-action="Index" asp-controller="Clas" method="get">
+            <input style="padding-left:1%;" class="btn btn-outline-info" type="search" placeholder="Buscar:" name="buscaAldeia" />
+            <input type="submit" class="btn btn-info" value="Buscar">
+        </form>
+    </div>
+</div>
+<div class="btn-group btn-group-justified">
+    <a href="#" class="btn btn-outline-info disabled">Total de Registros:</a>
+    <a href="#" class="btn btn-info disabled">@ViewBag.TotalAldeia</a>
+</div>
+
+<div class="btn-group btn-group-justified">
+    <a asp-action="Create" class="btn btn-dark">Adicionar Clã</a>
+</div>
+
+<div style="padding-right:8%; padding-left:8%; padding-top:3%;" class="row">
     @foreach (var item in Model)
-    { 
+    {
     <figure class="col-md-2 border-left border-bottom">
+        <figcaption align="center">@Html.DisplayFor(modelItem => item.NomeClas)</figcaption>
+        <hr />
         @if (item.ImageClas != null)
         {
-            <figcaption align="center">@Html.DisplayFor(modelItem => item.NomeClas)</figcaption>
-            <hr />
             var _img64 = Convert.ToBase64String(item.ImageClas);
             var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
             <img src="@imgScr" alt="Teste" style="margin-left:15%; width:70%;" class="figure-img" />
+        }
+        else
+        {
+
+            <img src="~/Imagens/nulo.png" style="margin-left:15%; width:70%;" class="figure-img" />
         }
     </figure>
     }

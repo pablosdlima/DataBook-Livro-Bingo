@@ -648,7 +648,6 @@ C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Data
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.TagHelpers.output.cache
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.RazorCoreGenerate.cache
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Aldeias\Create.cshtml.g.cs
-C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Aldeias\Details.cshtml.g.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Aldeias\Index.cshtml.g.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -672,10 +671,7 @@ C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razo
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Clas\Index.cshtml.g.cs
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Clas\Create.cshtml.g.cs
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Clas\Index.cshtml.g.cs
-C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Renegados.cshtml.g.cs
 C:\Users\Pablo\Desktop\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Renegados.cshtml.g.cs
-C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\PagedList.dll
-C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\PagedList.Mvc.dll
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\X.PagedList.dll
@@ -684,3 +680,8 @@ C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\bin\Debug\netcoreapp3.1\X.Pa
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.csproj.CoreCompileInputs.cache
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.MvcApplicationPartsAssemblyInfo.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\DataBook_Bingo.MvcApplicationPartsAssemblyInfo.cache
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\DataBook.cshtml.g.cs
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Organizacao\Criar.cshtml.g.cs
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Organizacao\Index.cshtml.g.cs
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Bingo.cshtml.g.cs
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Opcoes.cshtml.g.cs

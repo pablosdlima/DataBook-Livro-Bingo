@@ -1,8 +1,5 @@
-﻿@model DataBook_Bingo.Models.Clas
+﻿@model DataBook_Bingo.ViewModel.ClasViewModel
 
-@{
-    ViewData["Title"] = "Create";
-}
 
     <i><img width="20px" src="~/Imagens/Uzumaki.png" /><h4 style="text-indent:25px; font-family:Calibri;">Cadastrar Clã:</h4></i>
 <hr />
@@ -18,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ImageClas" class="control-label"></label>
-                <input type="file" name="file" class="form-control-file btn-outline-dark" required />
+                <input type="file" name="file" value="" class="form-control-file btn-outline-dark"/>
                 <span asp-validation-for="ImageClas" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -32,7 +29,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Index" class="btn btn-info">Voltar</a>
 </div>
 
 @section Scripts {

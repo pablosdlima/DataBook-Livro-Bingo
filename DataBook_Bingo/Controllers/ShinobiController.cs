@@ -5,11 +5,11 @@ using X.PagedList;
 using System.Linq;
 using System.Threading.Tasks;
 using DataBook_Bingo.Models;
-using PagedList;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using DataBook_Bingo.ViewModel;
 
 namespace DataBook_Bingo.Controllers
 {
@@ -22,49 +22,92 @@ namespace DataBook_Bingo.Controllers
             _Context = _context;
         }//construtor
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscaAldeia = null)
         {
-            var _contextShinobi = _Context.Shinobi.Include(s => s.Aldeia).Include(q => q.Clas); //variavel contem caracteristicas da tabela Shinobi com relação(Include) a Aldeia
-            return View(await _contextShinobi.ToListAsync()); //retornar...
+            var _contextShinobi = _Context.Shinobi.Include(s => s.Aldeia).Include(q => q.Clas).Include(p => p.Organizacao); //variavel contem caracteristicas da tabela Shinobi com relação(Include) a Aldeia
+            var totalAlerta2 = _contextShinobi.Count();
+            ViewBag.TotalAldeiaAlerta = totalAlerta2;
+            ViewBag.TotalAldeia = totalAlerta2;
+
+            if ((buscaAldeia != null))
+            {
+                var totalAlerta = _contextShinobi.Count();
+                ViewBag.TotalAldeiaAlerta = totalAlerta;
+
+                var total = _contextShinobi.Where(a => a.NomeShinobi.Contains(buscaAldeia)).Count();
+                ViewBag.TotalAldeia = total;
+
+                var retorno = _contextShinobi.Where(a => a.NomeShinobi.Contains(buscaAldeia));
+                return View(await retorno.ToListAsync());
+            }
+
+            var Shinobi = _Context.Shinobi.OrderByDescending(a => a.IdShinobi);
+            return View(await Shinobi.ToListAsync()); //retornar...
         }
 
-        public async Task<IActionResult> Renegados(int? pagina)
+        public async Task<IActionResult> DataBook(int? pagina)
         {
             int itemPagina = 2;
             int numeroPagina = (pagina ?? 1);
 
-            var _contextShinobi = _Context.Shinobi.OrderBy(i => i.NomeShinobi).Include(s => s.Aldeia).Include(s => s.Clas); // id ordenado com junções de tabela em paginas de lista.
+            var _contextShinobi = _Context.Shinobi.OrderBy(i => i.NomeShinobi).Include(s => s.Aldeia).Include(s => s.Clas).Include(p => p.Organizacao); // id ordenado com junções de tabela em paginas de lista.
             return View(await _contextShinobi.ToPagedListAsync(numeroPagina, itemPagina));
+        }
+
+        public async Task<IActionResult> Bingo(string buscaBingo = null)
+        {
+        
+            var Shinobi = _Context.Shinobi.OrderByDescending(a => a.IdShinobi).Include(s => s.Aldeia).Include(s => s.Clas).Include(p => p.Organizacao);
+            return View(await Shinobi.ToListAsync()); //retornar...
         }
 
         public IActionResult Create()
         {
             ViewData["Aldeia_Id"] = new SelectList(_Context.Aldeia, "IdAldeia", "NomeAldeia"); //retorno do relacionamento
             ViewData["Cla_Id"] = new SelectList(_Context.Clas, "IdClas", "NomeClas");
+            ViewData["Organizacao_Id"] = new SelectList(_Context.Organizacao, "IdOrganizacao", "NomeOrganizacao");
             return View();
         }
 
         [HttpPost] 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdShinobi,Aldeia_Id,Cla_Id,NomeShinobi,ImagemShinobi,Especialidade,Renegado,Vivo,Elemento,Graduacao,Membro,Nivel")] Shinobi shinobi, IList<IFormFile> file)
+        public async Task<IActionResult> Create(ShinobiViewModel model, IList<IFormFile> file)
         {
             IFormFile imgShinobi = file.FirstOrDefault();
+
+
             if (imgShinobi != null || imgShinobi.ContentType.ToLower().StartsWith("image/"))
             {
                 MemoryStream ms = new MemoryStream();
                 imgShinobi.OpenReadStream().CopyTo(ms);
-                shinobi.ImagemShinobi = ms.ToArray();
-                if (shinobi.ImagemShinobi != null)
+                model.ImagemShinobi = ms.ToArray();
+
+                ViewData["Aldeia_Id"] = new SelectList(_Context.Aldeia, "IdAldeia", "NomeAldeia", model.Aldeia_Id); //com ViewData retorna um select no html que dára as opções contidas em NomeAldeia com valores IdAldeia para o atr Id_Aldeia
+                ViewData["Cla_Id"] = new SelectList(_Context.Clas, "IdClas", "NomeClas", model.Cla_Id); //com ViewData retorna um select no html que dára as opções contidas em NomeAldeia com valores IdAldeia para o atr Id_Cla
+                ViewData["Organizacao_Id"] = new SelectList(_Context.Organizacao, "IdOrganizacao", "NomeOrganizacao", model.Organizacao_Id); //com ViewData retorna um select no html que dára as opções contidas em NomeAldeia com valores IdAldeia para o atr Id_Aldeia
+
+                Shinobi shinobi = new Shinobi
+                {
+                    Aldeia_Id = model.Aldeia_Id,
+                    Cla_Id = model.Cla_Id,
+                    Organizacao_Id = model.Organizacao_Id,
+                    NomeShinobi = model.NomeShinobi,
+                    ImagemShinobi = model.ImagemShinobi,
+                    Especialidade = model.Especialidade,
+                    Renegado = model.Renegado,
+                    Vivo = model.Vivo,
+                    Elemento = model.Elemento,
+                    Graduacao = model.Graduacao
+                };
+
+                if (shinobi != null)
                 {
                     _Context.Add(shinobi); //Context recebe o obj
                     await _Context.SaveChangesAsync(); //context é salvo no sql
                     return RedirectToAction(nameof(Index)); //retorno de pagina
                 }
             }
-            ViewData["Aldeia_Id"] = new SelectList(_Context.Aldeia, "IdAldeia", "NomeAldeia", shinobi.Aldeia_Id); //com ViewData retorna um select no html que dára as opções contidas em NomeAldeia com valores IdAldeia para o atr Id_Aldeia
-            ViewData["Cla_Id"] = new SelectList(_Context.Clas, "IdClas", "NomeClas", shinobi.Cla_Id); //com ViewData retorna um select no html que dára as opções contidas em NomeAldeia com valores IdAldeia para o atr Id_Aldeia
-
-            return View(shinobi);
+            return View(model);
         }
     }
 }

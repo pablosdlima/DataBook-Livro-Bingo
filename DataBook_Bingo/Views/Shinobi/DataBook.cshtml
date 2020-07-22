@@ -1,6 +1,13 @@
-﻿@model X.PagedList.IPagedList<DataBook_Bingo.Models.Shinobi>
+﻿@model X.PagedList.IPagedList<Shinobi>
 @using X.PagedList.Mvc.Core;
 
+<h3 align="center" style="left: 38%; top:11%; position:absolute;" class="col-3 font-weight-light">
+        Registros do Databook:
+</h3>
+
+<div class="justify-content-center">
+    @Html.PagedListPager(Model, pagina => Url.Action("DataBook", new { pagina }))
+</div>
 @foreach (var item in Model)
 {
     <div class="pagina">
@@ -11,7 +18,7 @@
             </ul>
         </div>
         <div class="aldeia">
-            @if (item.ImagemShinobi != null)
+            @if (item.Aldeia.ImgAldeia != null)
             {
                 var _img64 = Convert.ToBase64String(item.Aldeia.ImgAldeia);
                 var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
@@ -25,7 +32,7 @@
             </div>
         }
         <div class="aldeia cla">
-            @if (item.ImagemShinobi != null)
+            @if (item.Clas.ImageClas != null)
             {
                 var _img64 = Convert.ToBase64String(item.Clas.ImageClas);
                 var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
@@ -49,4 +56,8 @@
         </div>
     </div>
 }
-@Html.PagedListPager(Model, pagina => Url.Action("Renegados", new { pagina }))
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<DataBook_Bingo.Models.Shinobi>
+
+    <div class="col-3 position-absolute text-info font-italic font-weight-light">
+        <br />
+        " Os Livros Bingo são livros pretos usados ​​por shinobi, cuja contêm toda e qualquer informação sobre a Lista Negra
+        Shinobi e de seus alvos. Há várias versões dos Livros Bingo,
+        sendo as mais comuns as que se baseiam das Aldeias Ocultas. "
+        <br />
+        <br />
+        Fonte: https://naruto.fandom.com/
+        <hr />
+    </div>
+
+
+<div class="corpoLivro">
+    <div id="mybook" style="display:none;">
+        <div class="b-load">
+            @foreach (var item in Model)
+            {
+                <div>
+                    @if (item.Renegado != 'n')
+                    {
+                        <div class="aldeiaLivro">
+                            <img src="~/Imagens/minus.png" style=" width: 80%; height: 80%;" />
+                        </div>
+                        <div class="aldeiaLivro">
+                            @if (item.Aldeia.ImgAldeia != null)
+                            {
+                                var _img64 = Convert.ToBase64String(item.Aldeia.ImgAldeia);
+                                var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                                <img src="@imgScr" alt="Teste" style="width: 80%; height: 70%;" />
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="aldeiaLivro">
+                            @if (item.Aldeia.ImgAldeia != null)
+                            {
+                                var _img64 = Convert.ToBase64String(item.Aldeia.ImgAldeia);
+                                var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                                <img src="@imgScr" alt="Teste" style="width: 80%; height: 70%;" />
+                            }
+                        </div>
+                    }
+                    <div class="aldeiaLivro" style="top:25%;">
+                        @if (item.Clas.ImageClas != null)
+                        {
+                            var _img64 = Convert.ToBase64String(item.Clas.ImageClas);
+                            var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                            <img src="@imgScr" alt="Teste" style="width: 80px; height: 75px;" />
+                        }
+                    </div>
+                    <div class="fotoLivro">
+                        @if (item.Vivo != 's')
+                        {
+                            <div class="x">
+                                <img src="~/Imagens/minus.png" style=" width: 82%; height: 50%;" />
+                            </div>
+                        }
+                        @if (item.ImagemShinobi != null)
+                        {
+                            var _img64 = Convert.ToBase64String(item.ImagemShinobi);
+                            var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                            <img src="@imgScr" alt="Teste" style="width: 100%; height: 80%;" />
+                        }
+                        <div class="nomeLivro">
+                            <p>
+                                @Html.DisplayFor(modelItem => item.NomeShinobi)
+                                @Html.DisplayFor(modelItem => item.Clas.NomeClas)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rodapeLivro">
+                        <ul>
+                            @if (item.Organizacao.ImgOrganizacao != null)
+                            {
+                                var _img64 = Convert.ToBase64String(item.Organizacao.ImgOrganizacao);
+                                var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+                                <li style="border:none;">
+                                    <img src="@imgScr" alt="Teste" style="width: 10%; height: 10%; position:absolute; left:5%;" />
+                                </li>
+                            }
+                            <li>Organização: @Html.DisplayFor(modelItem => item.Organizacao.NomeOrganizacao)</li>
+                            <li>Graduação: @Html.DisplayFor(modelItem => item.Graduacao)</li>
+                            <li>Especialidade: @Html.DisplayFor(modelItem => item.Especialidade)</li>
+                            <li>Elemento: @Html.DisplayFor(modelItem => item.Elemento)</li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

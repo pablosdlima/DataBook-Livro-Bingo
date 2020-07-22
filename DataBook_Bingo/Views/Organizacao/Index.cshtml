@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Organizacao>
+
+<div id="aviso" class="alert alert-warning alert-dismissible" role="alert">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong aria-hidden="true" style="text-indent:25px; font-family:Calibri; color:slategrey;">
+        Total de @ViewBag.TotalAldeiaAlerta Organização(ões) já Cadastrada(s)...
+    </strong>
+</div>
+<div style="padding-left: 2%; padding-top: 1%;" class="row">
+    <div class="btn-group btn-group-justified busca">
+        <form asp-action="Index" asp-controller="Organizacao" method="get">
+            <input style="padding-left:1%;" class="btn btn-outline-info" type="search" placeholder="Buscar:" name="buscaAldeia" />
+            <input type="submit" class="btn btn-info" value="Buscar">
+        </form>
+    </div>
+</div>
+<div class="btn-group btn-group-justified">
+    <a href="#" class="btn btn-outline-info disabled">Total de Registros:</a>
+    <a href="#" class="btn btn-info disabled">@ViewBag.TotalAldeia</a>
+</div>
+
+<div class="btn-group btn-group-justified">
+    <a asp-action="Criar" class="btn btn-dark">Adicionar Organização</a>
+</div>
+
+
+<div style="padding-left:8%; padding-right:8%; padding-top:3%;" class="row">
+    @foreach (var item in Model)
+    {
+    <figure class="col-md-2 border-left border-bottom">
+        <figcaption align="center">@Html.DisplayFor(modelItem => item.NomeOrganizacao)</figcaption>
+        <hr />
+        @if (item.ImgOrganizacao != null)
+        {
+            var _img64 = Convert.ToBase64String(item.ImgOrganizacao);
+            var imgScr = String.Format("data:image/gif;base64,{0}", _img64);
+            <img src="@imgScr" alt="Sem Imagem" style="margin-left:15%; width:70%;" class="figure-img" />
+        }
+        else
+        {
+
+            <img src="~/Imagens/nulo.png" style="margin-left:15%; width:70%;" class="figure-img" />
+        }
+    </figure>
+    }
+    <figure class="col-md-2 border-left">
+    </figure>
+</div>

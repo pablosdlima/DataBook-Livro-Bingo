@@ -13,12 +13,8 @@ namespace DataBook_Bingo.Models
         [Key]
         public int IdClas { get; set; }
 
-        [Required(ErrorMessage = "O campo é Obrigátorio")]
-        [Display(Name = "Nome: ")]
         public string NomeClas { get; set; }
 
-        [Required(ErrorMessage = "O campo é Obrigátorio")]
-        [Display(Name = "Imagem: ")]
         public byte[] ImageClas { get; set; }
     }
 }

@@ -3,6 +3,12 @@
     padding:0%;
 }
 
+.busca {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: -1%;
+}
+
 .pagina {
     margin-top: 1%;
     margin-left: 0.5%;
@@ -52,9 +58,19 @@
     float: right;
      z-index:9999;
 }
+/*.morto {
+    opacity: 0.8;
+    filter: grayscale(100%);
+    background-image: url('../imagens/cross-out.png');
+    z-index:9999;
+}*/
 
 .cla {
     margin-top: 13%;
+}
+
+.organizacao {
+    margin-top: 26%;
 }
 
 .foto {
@@ -88,4 +104,65 @@
     width: 32%;
     height: 100%;
     float:left;
+}
+/************************************************************************/
+/************************************************************************/
+/************************************************************************/
+/************************************************************************/
+
+.corpoLivro { /*book_wrapper*/
+    margin: 0 auto;
+    margin-top: 2%;
+    width: 72%;
+    height: 70vh;
+    position: relative;
+    margin-left: 27%;
+/*    border: 1px solid black;*/
+    border-radius: 1%;
+    /* background: transparent url('../imagens/bg.png') no-repeat 9px 27px;
+    background-size: 100% 100%;*/
+}
+.meuLivro{
+
+}
+.rodapeLivro {
+    width: 100%;
+    height: 55%;
+    margin: 13% 1%;
+}
+
+.rodapeLivro ul li{
+    text-align: center;
+    list-style: none;
+    border-bottom: 3px solid silver;
+    line-height: 45px;
+    font-size: 1.3em;
+    font-family: roboto;
+}
+
+.fotoLivro {
+    width: 39%;
+    height: 27vh;
+    margin: 1% 0% 1% 1%;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 1px #fff;
+    padding: 1%;
+}
+.nomeLivro {
+    text-align: center;
+    line-height: 36px;
+}
+.aldeiaLivro {
+    width: 25%;
+    height: 15vh;
+    padding: 1%;
+    position: absolute;
+    right: 3%;
+}
+.x {
+    position: absolute;
+    width: 39%;
+    height: 27vh;
+    left:5%;
+    top:10%;
 }

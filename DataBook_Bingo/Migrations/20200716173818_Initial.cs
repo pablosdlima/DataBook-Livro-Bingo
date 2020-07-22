@@ -13,9 +13,9 @@ namespace DataBook_Bingo.Migrations
                 {
                     IdAldeia = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NomeAldeia = table.Column<string>(nullable: false),
-                    ImgAldeia = table.Column<byte[]>(nullable: false),
-                    PaisAldeia = table.Column<string>(nullable: false)
+                    NomeAldeia = table.Column<string>(nullable: true),
+                    ImgAldeia = table.Column<byte[]>(nullable: true),
+                    PaisAldeia = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,12 +28,27 @@ namespace DataBook_Bingo.Migrations
                 {
                     IdClas = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NomeClas = table.Column<string>(nullable: false),
-                    ImageClas = table.Column<byte[]>(nullable: false)
+                    NomeClas = table.Column<string>(nullable: true),
+                    ImageClas = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cla", x => x.IdClas);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Organizacao",
+                columns: table => new
+                {
+                    IdOrganizacao = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Limite = table.Column<int>(nullable: false),
+                    NomeOrganizacao = table.Column<string>(nullable: true),
+                    ImgOrganizacao = table.Column<byte[]>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Organizacao", x => x.IdOrganizacao);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,15 +59,14 @@ namespace DataBook_Bingo.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Aldeia_Id = table.Column<int>(nullable: false),
                     Cla_Id = table.Column<int>(nullable: false),
-                    NomeShinobi = table.Column<string>(nullable: false),
-                    ImagemShinobi = table.Column<byte[]>(nullable: false),
-                    Especialidade = table.Column<string>(nullable: false),
+                    Organizacao_Id = table.Column<int>(nullable: false),
+                    NomeShinobi = table.Column<string>(nullable: true),
+                    ImagemShinobi = table.Column<byte[]>(nullable: true),
+                    Especialidade = table.Column<string>(nullable: true),
                     Renegado = table.Column<string>(nullable: false),
                     Vivo = table.Column<string>(nullable: false),
-                    Elemento = table.Column<string>(nullable: false),
-                    Graduacao = table.Column<string>(nullable: false),
-                    Membro = table.Column<string>(nullable: false),
-                    Nivel = table.Column<string>(nullable: false)
+                    Elemento = table.Column<string>(nullable: true),
+                    Graduacao = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,6 +83,12 @@ namespace DataBook_Bingo.Migrations
                         principalTable: "Cla",
                         principalColumn: "IdClas",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Shinobi_Organizacao_Organizacao_Id",
+                        column: x => x.Organizacao_Id,
+                        principalTable: "Organizacao",
+                        principalColumn: "IdOrganizacao",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -80,6 +100,11 @@ namespace DataBook_Bingo.Migrations
                 name: "IX_Shinobi_Cla_Id",
                 table: "Shinobi",
                 column: "Cla_Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Shinobi_Organizacao_Id",
+                table: "Shinobi",
+                column: "Organizacao_Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -92,6 +117,9 @@ namespace DataBook_Bingo.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cla");
+
+            migrationBuilder.DropTable(
+                name: "Organizacao");
         }
     }
 }

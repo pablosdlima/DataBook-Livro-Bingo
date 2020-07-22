@@ -14,5 +14,6 @@ using DataBook_Bingo.Models;
 
         public DbSet<Aldeia> Aldeia { get; set; }
         public DbSet<Shinobi> Shinobi { get; set; }
-        public DbSet<DataBook_Bingo.Models.Clas> Clas { get; set; }
+        public DbSet<Clas> Clas { get; set; }
+        public DbSet<Organizacao> Organizacao { get; set; }
     }

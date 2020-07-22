@@ -7,9 +7,10 @@
     <link href="~/css/Personalizado.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/jquery.booklet.1.1.0.css" rel="stylesheet" />
 </head>
 <body>
-    <header style="background-color: #fb3;">
+    <header style="background-color: #fb3; z-index:9;">
         <nav class="navbar navbar-light navbar-1 white">
             <img width="4%" src="~/Imagens/icons8-naruto-144.png" />
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
@@ -21,10 +22,12 @@
                 <div class="navbar">
                     <a class="active" href="#"><i></i></a>
                     <a asp-area="" asp-controller="Home" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/shi.png" /></i>Inicio</a>
-                    <a asp-area="" asp-controller="Clas" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/Uzumaki.png" /></i>Clã</a>
+                    <a asp-area="" asp-controller="Clas" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/uzumaki.png" /></i>Clã</a>
                     <a asp-area="" asp-controller="Aldeias" asp-action="Index"><i style="margin-right:15px;"><img width="60px" src="~/Imagens/konoha.png" /></i>Aldeia</a>
+                    <a asp-area="" asp-controller="Organizacao" asp-action="Index"><i style="margin-right:15px;"><img width="24px" src="~/Imagens/anbu.png" /></i>Organização</a>
                     <a asp-area="" asp-controller="Shinobi" asp-action="Index"><i style="margin-right:15px;"><img width="24px" src="~/Imagens/kunai.png" /></i>Shinobi</a>
-                    <a asp-area="" asp-controller="Shinobi" asp-action="Renegados"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Renegados</a>
+                    <a asp-area="" asp-controller="Shinobi" asp-action="DataBook"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Databook</a>
+                    <a asp-area="" asp-controller="Shinobi" asp-action="Bingo"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Bingo Book</a>
                 </div>
             </div>
         </nav>

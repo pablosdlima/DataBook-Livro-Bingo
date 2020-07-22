@@ -1,4 +1,4 @@
-﻿@model DataBook_Bingo.Models.Shinobi
+﻿@model DataBook_Bingo.ViewModel.ShinobiViewModel
 
     <i><img width="20px" src="~/Imagens/kunai.png" /><h4 style="text-indent:25px; font-family:Calibri;">Cadastrar Shinobi:</h4></i>
 
@@ -34,15 +34,12 @@
                     </select>
                     <span asp-validation-for="Aldeia_Id" class="text-danger"></span>
                 </div>
-                <label asp-for="Especialidade" class="col-1 col-form-label"></label>
+                <label asp-for="Organizacao_Id" class="col-1 col-form-label"></label>
                 <div class="col-3">
-                    <select asp-for="Especialidade" class="form-control btn-outline-dark">
-                        <option disabled selected>- Selecione a Especialidade</option>
-                        <option value="Genjutsu">- Genjutsu -</option>
-                        <option value="Ninjutsu">- Ninjutsu -</option>
-                        <option value="Taijutsu">- Taijutsu -</option>
+                    <select asp-for="Organizacao_Id" class="form-control btn-outline-dark" asp-items="ViewBag.Organizacao_Id">
+                        <option disabled selected>- Selecione a Vila</option>
                     </select>
-                    <span asp-validation-for="Especialidade" class="text-danger"></span>
+                    <span asp-validation-for="Organizacao_Id" class="text-danger"></span>
                 </div>
             </div>
                                     <hr>
@@ -52,7 +49,7 @@
                 <label asp-for="Renegado" class="col-1 col-form-label"></label>
                 <div class="col-3">
                     <select asp-for="Renegado" class="form-control btn-outline-dark">
-                        <option disabled selected>- É Procurado?</option>
+                        <option disabled selected>- Nukenin</option>
                         <option value="n">- Não -</option>
                         <option value="s">- Sim -</option>
                     </select>
@@ -72,11 +69,11 @@
                     <select asp-for="Elemento" class="form-control btn-outline-dark">
                         <option disabled selected>- Elemento: </option>
                         <option value="nenhum">- Nenhum -</option>
-                        <option value="Água">- Água -</option>
-                        <option value="Fogo">- Fogo -</option>
-                        <option value="Terra">- Terra -</option>
-                        <option value="Trovão">- Trovão -</option>
-                        <option value="Vento">- Vento -</option>
+                        <option value="Suiton">- Suiton -</option>
+                        <option value="Katon">- Katon -</option>
+                        <option value="Doton">- Doton -</option>
+                        <option value="Raiton">- Raiton -</option>
+                        <option value="Fuuton">- Fuuton -</option>
                     </select>
                     <span asp-validation-for="Elemento" class="text-danger"></span>
                 </div>
@@ -96,36 +93,15 @@
                     </select>
                     <span asp-validation-for="Graduacao" class="text-danger"></span>
                 </div>
-                <label asp-for="Membro" class="col-1 col-form-label"></label>
+                <label asp-for="Especialidade" class="col-1 col-form-label"></label>
                 <div class="col-3">
-                    <select asp-for="Membro" class="form-control btn-outline-dark">
-                        <option disabled selected>- Selecione o grupo </option>
-                        <option value="Nenhum">- Nenhum -</option>
-                        <option value="Akatsuki">- Akatsuki -</option>
-                        <option value="Ambu">- Ambu -</option>
-                        <option value="Ambu Núcleo">- Ambu Núcleo -</option>
-                        <option value="Espadachins da Névoa">- Espadachins da Névoa -</option>
-                        <option value="Força Kinkaku">- Força Kinkaku -</option>
-                        <option value="Guardiões Ninja">- Guardiões Ninja -</option>
-                        <option value="Medicos">- Medicos -</option>
-                        <option value="Quarteto do Som">- Quarteto do Som -</option>
-                        <option value="Sannin">- Sannin -</option>
-                        <option value="Taka">- Taka -</option>
+                    <select asp-for="Especialidade" class="form-control btn-outline-dark">
+                        <option disabled selected>- Selecione a Especialidade</option>
+                        <option value="Genjutsu">- Genjutsu -</option>
+                        <option value="Ninjutsu">- Ninjutsu -</option>
+                        <option value="Taijutsu">- Taijutsu -</option>
                     </select>
-                    <span asp-validation-for="Membro" class="text-danger"></span>
-                </div>
-                <label asp-for="Nivel" class="col-1 col-form-label"></label>
-                <div class="col-3">
-                    <select asp-for="Nivel" class="form-control btn-outline-dark">
-                        <option disabled selected>- Selecione o Nível </option>
-                        <option value="N">- NADA -</option>
-                        <option value="D">- D -</option>
-                        <option value="C">- C -</option>
-                        <option value="B">- B -</option>
-                        <option value="A">- A -</option>
-                        <option value="S">- S -</option>
-                    </select>
-                    <span asp-validation-for="Nivel" class="text-danger"></span>
+                    <span asp-validation-for="Especialidade" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
@@ -135,15 +111,11 @@
     </div>
 
 <div>
-    <a asp-action="Index">Voltar</a>
+    <a asp-action="Index" class="btn btn-info">Voltar</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-@*
 
-            </form>
-        </div>
-    </div>*@
