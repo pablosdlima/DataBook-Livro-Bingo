@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.Extensions.WebEncoders.Testing;
 using SQLitePCL;
 using DataBook_Bingo.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DataBook_Bingo.Controllers
 {
@@ -24,6 +25,7 @@ namespace DataBook_Bingo.Controllers
             _context = context;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index(string buscaAldeia = null)
         {
             var totalAlerta2 = _context.Aldeia.Count();
@@ -47,6 +49,7 @@ namespace DataBook_Bingo.Controllers
             return View(await Aldeia.ToListAsync());
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();

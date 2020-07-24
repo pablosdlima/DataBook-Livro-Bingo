@@ -52,6 +52,20 @@ namespace DataBook_Bingo.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Usuarios",
+                columns: table => new
+                {
+                    IdUsuario = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmailUsuario = table.Column<string>(nullable: false),
+                    SenhaUsuario = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuarios", x => x.IdUsuario);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Shinobi",
                 columns: table => new
                 {
@@ -111,6 +125,9 @@ namespace DataBook_Bingo.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Shinobi");
+
+            migrationBuilder.DropTable(
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
                 name: "Aldeia");

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataBook_Bingo.Models;
 using DataBook_Bingo.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace DataBook_Bingo.Controllers
             _context = context;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index(string buscaAldeia = null)
         {
             var totalAlerta2 = _context.Organizacao.Count();

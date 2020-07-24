@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataBook_Bingo.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DataBook_Bingo.Controllers
 {
@@ -22,6 +23,7 @@ namespace DataBook_Bingo.Controllers
             _Context = _context;
         }//construtor
 
+        [Authorize]
         public async Task<IActionResult> Index(string buscaAldeia = null)
         {
             var _contextShinobi = _Context.Shinobi.Include(s => s.Aldeia).Include(q => q.Clas).Include(p => p.Organizacao); //variavel contem caracteristicas da tabela Shinobi com relação(Include) a Aldeia
@@ -54,13 +56,15 @@ namespace DataBook_Bingo.Controllers
             return View(await _contextShinobi.ToPagedListAsync(numeroPagina, itemPagina));
         }
 
-        public async Task<IActionResult> Bingo(string buscaBingo = null)
+        [Authorize]
+        public async Task<IActionResult> Bingo()
         {
         
             var Shinobi = _Context.Shinobi.OrderByDescending(a => a.IdShinobi).Include(s => s.Aldeia).Include(s => s.Clas).Include(p => p.Organizacao);
             return View(await Shinobi.ToListAsync()); //retornar...
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["Aldeia_Id"] = new SelectList(_Context.Aldeia, "IdAldeia", "NomeAldeia"); //retorno do relacionamento

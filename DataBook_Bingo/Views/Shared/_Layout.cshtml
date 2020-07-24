@@ -13,6 +13,13 @@
     <header style="background-color: #fb3; z-index:9;">
         <nav class="navbar navbar-light navbar-1 white">
             <img width="4%" src="~/Imagens/icons8-naruto-144.png" />
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="btn-group" style="position:absolute; left:7%; top:3%;">
+                     <button type="button" class="btn btn-outline-dark disabled">@User.Identity.Name</button>
+                    <a class="btn btn-dark" asp-action="Logout" asp-controller="Usuario">Sair</a>
+                </div>
+            }
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
                     aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,14 +27,24 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent15">
                 <!-- Links -->
                 <div class="navbar">
-                    <a class="active" href="#"><i></i></a>
-                    <a asp-area="" asp-controller="Home" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/shi.png" /></i>Inicio</a>
-                    <a asp-area="" asp-controller="Clas" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/uzumaki.png" /></i>Clã</a>
-                    <a asp-area="" asp-controller="Aldeias" asp-action="Index"><i style="margin-right:15px;"><img width="60px" src="~/Imagens/konoha.png" /></i>Aldeia</a>
-                    <a asp-area="" asp-controller="Organizacao" asp-action="Index"><i style="margin-right:15px;"><img width="24px" src="~/Imagens/anbu.png" /></i>Organização</a>
-                    <a asp-area="" asp-controller="Shinobi" asp-action="Index"><i style="margin-right:15px;"><img width="24px" src="~/Imagens/kunai.png" /></i>Shinobi</a>
-                    <a asp-area="" asp-controller="Shinobi" asp-action="DataBook"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Databook</a>
-                    <a asp-area="" asp-controller="Shinobi" asp-action="Bingo"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Bingo Book</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-area="" asp-controller="Home" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/shi.png" /></i>Inicio</a>
+                        <a asp-area="" asp-controller="Shinobi" asp-action="DataBook"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Databook</a>
+                        <a asp-area="" asp-controller="Clas" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/uzumaki.png" /></i>Clã</a>
+                        <a asp-area="" asp-controller="Aldeias" asp-action="Index"><i style="margin-right:15px;"><img width="60px" src="~/Imagens/konoha.png" /></i>Aldeia</a>
+                        <a asp-area="" asp-controller="Organizacao" asp-action="Index"><i style="margin-right:15px;"><img width="24px" src="~/Imagens/anbu.png" /></i>Organização</a>
+                        <a asp-area="" asp-controller="Shinobi" asp-action="Index"><i style="margin-right:15px;"><img width="24px" src="~/Imagens/kunai.png" /></i>Shinobi</a>
+                        <a asp-area="" asp-controller="Shinobi" asp-action="Bingo"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Bingo Book</a>
+                    }
+                    else
+                    {
+                        <a class="active" href="#"><i></i></a>
+                        <a asp-area="" asp-controller="Home" asp-action="Index"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/shi.png" /></i>Inicio</a>
+                        <a asp-area="" asp-controller="Usuario" asp-action="Cadastrar"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/shi.png" /></i>Cadastrar</a>
+                        <a asp-area="" asp-controller="Usuario" asp-action="Login"><i style="margin-right:15px;"><img width="25px" src="~/Imagens/shi.png" /></i>Login</a>
+                        <a asp-area="" asp-controller="Shinobi" asp-action="DataBook"><i><img width="60px" src="~/Imagens/konoharenegado.png" /></i>Databook</a>
+                    }
                 </div>
             </div>
         </nav>

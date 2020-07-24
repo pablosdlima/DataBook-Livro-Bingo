@@ -1,0 +1,50 @@
+﻿@model DataBook_Bingo.ViewModel.CadastroViewModel
+   
+    <i style="top:10%; left:32%; position:absolute;"><img width="75px" src="~/Imagens/konoha.png" /></i>
+    <p class="font-italic text-dark" style="line-height: 60px; text-align: center; border-bottom: 2px solid silver; margin-left: 25%; margin-right: 25%;">
+        - Para obter acesso aos demais recursos, Cadastre-se!
+    </p>
+
+     <div class="row">
+         <div class="col-3">
+             
+         </div>
+         <div class="col-3">
+             <img src="~/Imagens/FB_IMG_1591142603333.jpg" width="100%"  style="border-radius:5%; filter: saturate(0.5);"/>
+         </div>
+         <div class="col-3">
+             <form asp-action="Cadastrar" asp-controller="Usuario" method="post">
+                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                 <div class="form-group">
+                     <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="Email" class="control-label"></label>
+                     <input type="search" asp-for="Email" class="form-control btn-outline-dark" />
+                     <span asp-validation-for="Email" class="text-danger"></span>
+                 </div>
+
+                 <div class="form-group">
+                     <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="Senha" class="control-label"></label>
+                     <input type="password" asp-for="Senha" class="form-control btn-outline-dark" />
+                     <span asp-validation-for="Senha" class="text-danger"></span>
+                 </div>
+
+                 <div class="form-group">
+                     <i style="margin-right:15px;"><img width="50px" src="~/Imagens/konoha.png" /></i><label asp-for="ConfirmaSenha" class="control-label"></label>
+                     <input type="password" asp-for="ConfirmaSenha" class="form-control btn-outline-dark" />
+                     <span asp-validation-for="ConfirmaSenha" class="text-danger"></span>
+                 </div>
+
+                 <div class="form-group">
+                     <input type="submit" value="Cadastrar" class="btn  btn-dark" />
+                 </div>
+             </form>
+         </div>
+         <div class="col-3">
+             
+         </div>
+     </div>
+
+    @*<div style="margin-top:2%; margin-left:5%;" class="row">
+        <div class="col-5">
+            
+        </div>
+    </div>*@

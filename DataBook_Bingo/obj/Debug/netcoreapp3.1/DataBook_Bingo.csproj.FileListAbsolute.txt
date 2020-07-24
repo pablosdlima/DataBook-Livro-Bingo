@@ -685,3 +685,5 @@ C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razo
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Organizacao\Index.cshtml.g.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shinobi\Bingo.cshtml.g.cs
 C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Opcoes.cshtml.g.cs
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cadastrar.cshtml.g.cs
+C:\Aplicações\DataBook-Livro-Bingo\DataBook_Bingo\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Login.cshtml.g.cs

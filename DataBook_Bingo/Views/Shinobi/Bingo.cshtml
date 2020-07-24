@@ -15,6 +15,9 @@
 <div class="corpoLivro">
     <div id="mybook" style="display:none;">
         <div class="b-load">
+            <div class="bg-dark">
+                <img src="~/Imagens/na.png" style="width: 50%; height: 110px; margin: 33%; filter: grayscale(1);"/>
+            </div>
             @foreach (var item in Model)
             {
                 <div>
@@ -55,7 +58,7 @@
                         @if (item.Vivo != 's')
                         {
                             <div class="x">
-                                <img src="~/Imagens/minus.png" style=" width: 82%; height: 50%;" />
+                                <img src="~/Imagens/x.png" style=" width: 82%; height: 75%;" />
                             </div>
                         }
                         @if (item.ImagemShinobi != null)
@@ -90,6 +93,9 @@
                     </div>
                 </div>
             }
+        <div class="bg-dark">
+            <img src="~/Imagens/na.png" style="width: 50%; height: 110px; margin: 33%; filter: grayscale(1);" />
+        </div>
         </div>
     </div>
 </div>

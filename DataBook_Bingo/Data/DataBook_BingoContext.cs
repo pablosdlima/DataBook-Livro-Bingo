@@ -12,6 +12,7 @@ using DataBook_Bingo.Models;
         {
         }
 
+        public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Aldeia> Aldeia { get; set; }
         public DbSet<Shinobi> Shinobi { get; set; }
         public DbSet<Clas> Clas { get; set; }

@@ -9,6 +9,7 @@ using DataBook_Bingo.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using DataBook_Bingo.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DataBook_Bingo.Controllers
 {
@@ -21,7 +22,7 @@ namespace DataBook_Bingo.Controllers
             _context = context;
         }
 
-        // GET: Clas
+        [Authorize]
         public async Task<IActionResult> Index(string buscaAldeia = null)
         {
             var totalAlerta2 = _context.Clas.Count();
@@ -44,6 +45,7 @@ namespace DataBook_Bingo.Controllers
             return View(await Clas.ToListAsync());
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();

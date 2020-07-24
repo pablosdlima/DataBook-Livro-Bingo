@@ -128,6 +128,26 @@ namespace DataBook_Bingo.Migrations
                     b.ToTable("Shinobi");
                 });
 
+            modelBuilder.Entity("DataBook_Bingo.Models.Usuarios", b =>
+                {
+                    b.Property<int>("IdUsuario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EmailUsuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenhaUsuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdUsuario");
+
+                    b.ToTable("Usuarios");
+                });
+
             modelBuilder.Entity("DataBook_Bingo.Models.Shinobi", b =>
                 {
                     b.HasOne("DataBook_Bingo.Models.Aldeia", "Aldeia")
