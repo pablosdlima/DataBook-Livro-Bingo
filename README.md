@@ -16,7 +16,7 @@ Video Youtube: https://www.youtube.com/watch?v=_DCdCkib5O8&feature=youtu.be
 ![](https://github.com/pablosdlima/DataBook-Livro-Bingo/blob/master/Prints/Cadastro.PNG)
 
 ### Autenticação de Usuário
-![](https://github.com/pablosdlima/DataBook-Livro-Bingo/blob/master/Prints/Login.PNG)
+![](https://github.com/pablosdlima/DataBook-Livro-Bingo/blob/master/Prints/login.PNG)
 
 ### Cadastro de Aldeias e Visualização
 ![](https://github.com/pablosdlima/DataBook-Livro-Bingo/blob/master/Prints/CadastrarAldeia.PNG)
